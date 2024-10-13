@@ -45,9 +45,9 @@
             this.btn_numeral = new System.Windows.Forms.Button();
             this.btn_michi = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
             // btn1
@@ -268,15 +268,6 @@
             this.label1.TabIndex = 16;
             this.label1.Text = "INGRESE LA CONTRASEÑA";
             // 
-            // progressBar1
-            // 
-            this.progressBar1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.progressBar1.Location = new System.Drawing.Point(48, 464);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(334, 35);
-            this.progressBar1.TabIndex = 17;
-            this.progressBar1.Click += new System.EventHandler(this.progressBar1_Click);
-            // 
             // textBoxPassword
             // 
             this.textBoxPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -299,15 +290,22 @@
             this.label2.TabIndex = 19;
             this.label2.Text = "INTENTOS:";
             // 
+            // progressBar
+            // 
+            this.progressBar.Location = new System.Drawing.Point(48, 458);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(331, 23);
+            this.progressBar.TabIndex = 20;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.ClientSize = new System.Drawing.Size(431, 511);
+            this.Controls.Add(this.progressBar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBoxPassword);
-            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnD);
             this.Controls.Add(this.btn0);
@@ -326,7 +324,7 @@
             this.Controls.Add(this.btn3);
             this.Controls.Add(this.btn1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.ShowIcon = false;
             this.Text = "Form1";
@@ -357,9 +355,9 @@
         private System.Windows.Forms.Button btn_numeral;
         private System.Windows.Forms.Button btn_michi;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ProgressBar progressBar;
     }
 }
 
