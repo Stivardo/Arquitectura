@@ -39,31 +39,26 @@ namespace ArquitecturaDelComputador
         // Evento para recibir datos del Arduino
         private void DataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
         {
-            string data = ArduinoUno.ReadLine();
+            string data = ArduinoUno.ReadLine(); // Leer los datos recibidos
 
             this.Invoke(new Action(() =>
             {
+                // Mostrar los datos recibidos para depuración
                 MessageBox.Show($"Datos recibidos: {data}");
 
                 // Verificar si la contraseña fue incorrecta
                 if (data.Contains("Contraseña incorrecta"))
                 {
                     intentosFallidos++;
-                    progressBar.Value = Math.Min(intentosFallidos * 25, 100);  // Incrementa en pasos de 25 hasta 100
+                    progressBar.Value = Math.Min(intentosFallidos * 25, 100);  // Incrementa el ProgressBar en pasos de 25
                     MessageBox.Show($"Contraseña incorrecta. Intentos fallidos: {intentosFallidos}");
-
-                    // Habilitar los botones nuevamente para permitir otro intento
-                    HabilitarBotones();
                 }
                 // Verificar si la contraseña fue correcta
                 else if (data.Contains("Contraseña correcta"))
                 {
-                    intentosFallidos = 0;
-                    progressBar.Value = 0;  // Reinicia el progressBar
+                    intentosFallidos = 0;  // Reiniciar el contador de intentos
+                    progressBar.Value = 0;  // Reiniciar el ProgressBar
                     MessageBox.Show("Contraseña correcta. Alarma desactivada.");
-
-                    // Habilitar los botones nuevamente para permitir otra interacción si es necesario
-                    HabilitarBotones();
                 }
             }));
         }
@@ -85,9 +80,6 @@ namespace ArquitecturaDelComputador
 
                 textBoxPassword.Text = "";  // Limpia el campo de la contraseña visible
                 passwordBuffer = "";  // Limpia el buffer de la contraseña
-
-                // Deshabilitar los botones mientras esperas la respuesta del Arduino
-                DeshabilitarBotones();
             }
         }
 
@@ -136,47 +128,6 @@ namespace ArquitecturaDelComputador
         private void progressBar1_Click(object sender, EventArgs e)
         {
             // Opcional: código que quieras ejecutar al interactuar con el ProgressBar
-        }
-
-        // Funciones para habilitar y deshabilitar botones
-        private void DeshabilitarBotones()
-        {
-            btn1.Enabled = false;
-            btn2.Enabled = false;
-            btn3.Enabled = false;
-            btn4.Enabled = false;
-            btn5.Enabled = false;
-            btn6.Enabled = false;
-            btn7.Enabled = false;
-            btn8.Enabled = false;
-            btn9.Enabled = false;
-            btn0.Enabled = false;
-            btnA.Enabled = false;
-            btnB.Enabled = false;
-            btnC.Enabled = false;
-            btnD.Enabled = false;
-            btn_michi.Enabled = false;
-            btn_numeral.Enabled = false;
-        }
-
-        private void HabilitarBotones()
-        {
-            btn1.Enabled = true;
-            btn2.Enabled = true;
-            btn3.Enabled = true;
-            btn4.Enabled = true;
-            btn5.Enabled = true;
-            btn6.Enabled = true;
-            btn7.Enabled = true;
-            btn8.Enabled = true;
-            btn9.Enabled = true;
-            btn0.Enabled = true;
-            btnA.Enabled = true;
-            btnB.Enabled = true;
-            btnC.Enabled = true;
-            btnD.Enabled = true;
-            btn_michi.Enabled = true;
-            btn_numeral.Enabled = true;
         }
     }
 }
